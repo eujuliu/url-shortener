@@ -1,0 +1,36 @@
+{
+  "name": "url-shortener",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "lint": "exec biome lint --write",
+    "lint:check": "exec biome check --write",
+    "test": "vitest --no-cache",
+    "test:pass": "vitest --no-cache --passWithNoTests",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts}": [
+      "pnpm run lint",
+      "pnpm run test:pass"
+    ]
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.19.6",
+    "hono": "^4.10.6"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.5",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@types/node": "^20.11.17",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3",
+    "vitest": "^4.0.9"
+  }
+}
